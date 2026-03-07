@@ -1,8 +1,5 @@
 # Toy Pad Emulator for Lego Dimensions
 
-<a href="https://www.buymeacoffee.com/Berny23" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee donate button" /></a>
-</span>
-
 Allows you to connect an emulated Toy Pad to your PC or video-game console.
 
 ## Features
@@ -65,7 +62,7 @@ Allows you to connect an emulated Toy Pad to your PC or video-game console.
    echo "usb_f_rndis" | sudo tee -a /etc/modules
 
    git config pull.rebase false
-   git clone https://github.com/Berny23/LD-ToyPad-Emulator.git
+   git clone https://github.com/RealDawTheD/LD-ToyPad-Emulator.git
    cd LD-ToyPad-Emulator
 
    printf '\necho "usbip-vudc.0" > UDC\nusbipd -D --device\nsleep 2;\nusbip attach -r debian -b usbip-vudc.0\nchmod a+rw /dev/hidg0' >> usb_setup_script.sh
@@ -121,6 +118,8 @@ Allows you to connect an emulated Toy Pad to your PC or video-game console.
 
 ### Option 2: Single Board Computer
 
+## Warning: At the moment, I do not suggest using this version of ToyPad Emulator at this moment in time. I have had multiple issues with it, hence leading me to create this repo.
+
 #### Prerequisites
 
 - **Raspberry Pi Zero W** ($10) or **Raspberry Pi 4 B** (with `USB/Power Splitter for Raspberry Pi` from Ali or `USB-C/PWR Splitter` from pishop.us) or similar single board computer with Network support
@@ -138,7 +137,7 @@ Allows you to connect an emulated Toy Pad to your PC or video-game console.
 3. Use SSH to run the following command (Don't know the IP address? Try [this IP scanner](https://www.advanced-ip-scanner.com/).) - this will prepare your Raspberry Pi to work as a USB gadget:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Berny23/LD-ToyPad-Emulator/master/pi_setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/RealDawTheD/LD-ToyPad-Emulator/master/pi_setup.sh | bash
 ```
 
 4. Reboot you device with this command:
@@ -184,7 +183,7 @@ podman create \
 
 2. Type **your single board computer's IP address** in a browser to use the emulator.
 
-   If you want to turn it off, just stop the container (`podman stop ld-tyopad-emulator`) in the terminal window, then use the command `sudo shutdown now` to safely power off the device.
+   If you want to turn it off, just stop the container (`podman stop ld-toypad-emulator`) in the terminal window, then use the command `sudo shutdown now` to safely power off the device.
 
 ## Update
 
@@ -203,9 +202,9 @@ Then rebuild and recreate the container starting from step 5 above.
 
 If you would like your tags to have custom images over them to personalize your experience, name your image (ID).png and place them in server/images inside the Toypad Emulator folder. If you want them to cover the entirety of the tag with no blank space, make sure your image is either 100x100 or can be scaled to that size.
 
-Character IDs can be found [here](https://github.com/Berny23/LD-ToyPad-Emulator/blob/master/server/json/charactermap.json)
+Character IDs can be found [here](https://github.com/RealDawTheD/LD-ToyPad-Emulator/blob/master/server/json/charactermap.json)
 
-Vehicle IDs can be found [here](https://github.com/Berny23/LD-ToyPad-Emulator/blob/master/server/json/tokenmap.json)
+Vehicle IDs can be found [here](https://github.com/RealDawTheD/LD-ToyPad-Emulator/blob/master/server/json/tokenmap.json)
 
 ## Troubleshooting
 
@@ -278,17 +277,7 @@ If you encounter any errors regarding image creation using podman, please try an
 
 ## Acknowledgements
 
-- **ags131** for writing one of the main NodeJS libraries I'm using: [https://www.npmjs.com/package/node-ld](https://www.npmjs.com/package/node-ld). My project would've been impossible to create without this guy's research.
-
-- **cort1237** for implementing writing data (like vehicle upgrades) to toy tags, as well as several user interface updates and support for saving toy tags locally.
-
-- **benlucaslaws** for improving the user experience and implementing a complete filtering system for vehicle/character abilities and game worlds.
-
-- **DaPiMan** for helping with missing or misplaced vehicle IDs and other improvements.
-
-- **Euniemeansme** for adding/fixing character and vehicle abilities and other data improvements.
-
-- **VladimirKuletski** for creating/updating CI workflows for automated testing via GitHub Actions.
+**I am not** the original creator of this project: all credit goes to **Berny23** and his original repo. I've just made this fork more for **educational purposes** and fixing issues I had with Berny23's original repo.
 
 ## License
 

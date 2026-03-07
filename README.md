@@ -124,7 +124,7 @@ Allows you to connect an emulated Toy Pad to your PC or video-game console.
 
 - **Raspberry Pi Zero W** ($10) or **Raspberry Pi 4 B** (with `USB/Power Splitter for Raspberry Pi` from Ali or `USB-C/PWR Splitter` from pishop.us) or similar single board computer with Network support
   - **NOTE**: Will NOT work with Raspberry Pi: 2, 3, 3A, 3A+, 3B, 3B+. These models lack the ability to become a USB gadget.
-- **USB Type-A to micro-USB 2.0 Type-B cable** that supports data transmission (e. g. your phone's charging cable)
+- **USB Type-A to micro-USB 2.0/Type-C cable** that supports data transmission (e. g. your phone's charging cable)
 - 2 GB+ Micro SD card
 - Internet connection on your PC and single board computer
 
@@ -157,7 +157,7 @@ podman build \
 
 NOTE: Raspberry Pi OS 64bit uses linux/arm64/v8 as platform, Raspberry Pi OS 32bit uses linux/arm/v7 as platform, the Raspberry Pi Zero uses linux/arm/v6 as platform, and x86_64 based machines will use linux/amd64 as platform.
 
-If you have any issues using podman, you can try and use docker instead, see [Podman build issue](#podman-doesnt-build-image).
+If you have any issues using podman, you can try and use docker instead, see [Podman build issue](#podman-doesnt-build-image). **I do not recommended this for the Pi Zero W**. Instead please switch to the main branch and follow that.
 
 Especially on the RPi Zero the build can take a very long time (20+ minutes). If pulling the base images succeeds and the build proceeds to higher stages (i.e. RUN npm install) you probably just need to be patient!
 

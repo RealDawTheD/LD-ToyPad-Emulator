@@ -11,9 +11,9 @@ FROM --platform=linux/arm64/v8 node:22-alpine AS base-arm64v8
 # arm 32-bit
 # on a 32bit raspberry pi os (bookworm) docker sets TARGETVARIANT to v8
 # though logs indicate that it still just pulls arm/v7 base images
-FROM --platform=linux/arm/v7 node:18-alpine AS base-armv8
-FROM --platform=linux/arm/v7 node:18-alpine AS base-armv7
-FROM --platform=linux/arm/v6 node:18-alpine AS base-armv6
+FROM --platform=linux/arm/v7 node:20-alpine AS base-armv8
+FROM --platform=linux/arm/v7 node:20-alpine AS base-armv7
+FROM --platform=linux/arm/v6 node:20-alpine AS base-armv6
 
 FROM base-${TARGETARCH}${TARGETVARIANT} AS final
 

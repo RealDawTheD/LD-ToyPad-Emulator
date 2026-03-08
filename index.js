@@ -23,6 +23,11 @@ const tokenmapPath = path.join(__dirname, "server/json/tokenmap.json");
 const charactersMapPath = path.join(__dirname, "server/json/charactermap.json");
 const tp = new ld.ToyPadEmu();
 tp.registerDefaults();
+tp.on('error', (err) => {
+    console.error('ToyPadEmu error:', err);
+    // Optional: exit gracefully so the container restart policy can kick in
+    process.exit(1);
+});
 
 initializeToyTagsJSON(); //Run in case there were any leftovers from a previous run.
 
@@ -681,6 +686,12 @@ io.on("connection", (socket) => {
     io.emit("refreshTokens");
     console.log("<<Tags are synced!>>");
   });
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+  // Exit to let the container restart (if --restart=always is set)
+  process.exit(1);
 });
 
 const EXPRESS_PORT = 80;

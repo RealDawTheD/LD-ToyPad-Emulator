@@ -118,8 +118,6 @@ Allows you to connect an emulated Toy Pad to your PC or video-game console.
 
 ### Option 2: Single Board Computer
 
-## Warning: At the moment, I do not suggest using this version of ToyPad Emulator at this moment in time. I have had multiple issues with it, hence leading me to create this repo.
-
 #### Prerequisites
 
 - **Raspberry Pi Zero W** ($10) or **Raspberry Pi 4 B** (with `USB/Power Splitter for Raspberry Pi` from Ali or `USB-C/PWR Splitter` from pishop.us) or similar single board computer with Network support
@@ -166,6 +164,7 @@ Especially on the RPi Zero the build can take a very long time (20+ minutes). If
 ```bash
 podman create \
   --name ld-toypad-emulator \
+  --restart=always \
   -p 8080:80 \
   --device /dev/hidg0:/dev/hidg0 \
   # Optional: mount a host folder for persistent images
@@ -197,6 +196,10 @@ podman image rm localhost/ld-toypad-emulator:latest
 ```
 
 Then rebuild and recreate the container starting from step 5 above.
+
+## Warning: 
+
+You will notice in the logs when doing ```podman logs ld-toypad-emulator``` you will notice the following error: ```Uncaught Exception: [Error: ESHUTDOWN: cannot send after transport endpoint shutdown, read]```. Please ignore this. The error should not affect gameplay, as the container is automatically restarted and there are error handlers in place. Should you have any issues, please create an issue.
 
 ## Adding Images
 

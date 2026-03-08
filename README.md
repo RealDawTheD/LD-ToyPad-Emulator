@@ -155,7 +155,7 @@ podman build \
 
 NOTE: Raspberry Pi OS 64bit uses linux/arm64/v8 as platform, Raspberry Pi OS 32bit uses linux/arm/v7 as platform, the Raspberry Pi Zero uses linux/arm/v6 as platform, and x86_64 based machines will use linux/amd64 as platform.
 
-If you have any issues using podman, you can try and use docker instead, see [Podman build issue](#podman-doesnt-build-image). **I do not recommended this for the Pi Zero W**. Instead please switch to the main branch and follow that.
+If you have any issues using podman, you can try and use docker instead, see [Podman build issue](#podman-doesnt-build-image). **I do not recommend if using the Pi Zero W**. Instead please switch to the main branch and follow that.
 
 Especially on the RPi Zero the build can take a very long time (20+ minutes). If pulling the base images succeeds and the build proceeds to higher stages (i.e. RUN npm install) you probably just need to be patient!
 
